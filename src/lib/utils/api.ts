@@ -8,8 +8,8 @@ export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
 export const tmbdApi = axios.create({
   baseURL: TMDB_BASE_URL,
-  headers: {
-    Authorization: `Bearer ${TMDB_API_ACCESS_TOKEN}`,
+  params: {
+    api_key: TMDB_API_ACCESS_TOKEN,
   },
 });
 
@@ -23,10 +23,12 @@ export const QUERY_KEYS = {
   POPULAR_MOVIES: "POPULAR_MOVIES",
   SEARCH_MOVIES: "SEARCH_MOVIES",
   MOVIE_DETAILS: "MOVIE_DETAILS",
+  TOP_RATED_MOVIES: "TOP_RATED_MOVIES",
 };
 
 export const ENDPOINTS = {
   POPULAR_MOVIES: `/movie/popular`,
   SEARCH_MOVIES: `/search/movie`,
   MOVIE_DETAILS: (id: number) => `/movie/${id}`,
+  TOP_RATED_MOVIES: `/movie/top_rated`,
 };
